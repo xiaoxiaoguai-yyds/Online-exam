@@ -1,0 +1,22 @@
+spring.application.name=question
+
+# MySQL数据库配置
+spring.datasource.url=jdbc:mysql://localhost:3306/question_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA配置
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+# JSON时间格式配置
+spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
+spring.jackson.time-zone=Asia/Shanghai
+spring.jackson.serialization.write-dates-as-timestamps=false
+
+# 服务器配置
+server.port=8080
+server.servlet.context-path=/api

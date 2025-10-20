@@ -1,0 +1,61 @@
+{
+  "name": "question-management-system",
+  "private": true,
+  "version": "1.0.0",
+  "description": "题目管理系统桌面应用",
+  "main": "main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build-electron": "npm run build && electron-builder",
+    "dist": "npm run build && electron-builder --publish=never"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "vue": "^3.5.18",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@electron/packager": "^18.4.4",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "concurrently": "^8.2.2",
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2",
+    "vite": "^7.1.2",
+    "wait-on": "^8.0.4"
+  },
+  "build": {
+    "appId": "com.example.question-management",
+    "productName": "题目管理系统",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "public/favicon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
